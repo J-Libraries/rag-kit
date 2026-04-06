@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rag-kit"
+version = "0.1.0"
+description = "A Python library for document-based RAG"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+  { name = "Nishant Mishra" }
+]
+dependencies = [
+  "langchain",
+  "langchain-core",
+  "langchain-community",
+  "langchain-text-splitters",
+  "langchain-classic",
+  "langchain-huggingface",
+  "chromadb",
+  "pypdf",
+  "sentence-transformers",
+  "python-dotenv"
+]
+
+[project.optional-dependencies]
+sarvam = ["langchain-sarvam"]
+openai = ["langchain-openai"]
+anthropic = ["langchain-anthropic"]
+all = [
+  "langchain-sarvam",
+  "langchain-openai",
+  "langchain-anthropic"
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
